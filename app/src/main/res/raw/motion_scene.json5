@@ -1,0 +1,60 @@
+{
+  ConstraintSets: {
+    start: {
+      stickyHeader: {
+        width: 'spread',
+        height: 120,
+        start: ['parent', 'start'],
+        top: ['parent', 'top'],
+        end: ['parent', 'end'],
+        bottom: ['items', 'top']
+      },
+      items: {
+        width: 'spread',
+        height: 'spread',
+        start: ['parent', 'start'],
+        end: ['parent', 'end'],
+        top: ['stickyHeader', 'bottom'],
+        bottom: ['parent', 'bottom']
+      }
+    },
+    end: {
+      stickyHeader: {
+        width: 'spread',
+        height: 60,
+        start: ['parent', 'start'],
+        end: ['parent', 'end'],
+        top: ['parent', 'top'],
+        bottom: ['items', 'top']
+      },
+      items: {
+        width: 'spread',
+        height: 'spread',
+        start: ['parent', 'start'],
+        end: ['parent', 'end'],
+        top: ['stickyHeader', 'bottom'],
+        bottom: ['parent', 'bottom']
+      }
+    },
+    Transitions: {
+      default: {
+        from: 'start',
+        to: 'end',
+        pathMotionArc: 'startVertical',
+        KeyFrames: {
+          KeyAttributes: [
+            {
+              target: ['stickyHeader'],
+              frames: [0, 100]
+            },
+            {
+              target: ['items'],
+              frames: [0, 50, 100],
+              translationX: [0, 70, 0],
+            }
+          ]
+        }
+      }
+    }
+  }
+}
